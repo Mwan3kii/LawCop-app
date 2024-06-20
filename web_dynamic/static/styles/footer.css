@@ -1,0 +1,18 @@
+footer {
+    position: relative;
+    background-color: burlywood;
+    height: auto;
+    width: 100;
+    bottom: 0;
+    border-top: 1px solid #CCCC;
+}
+footer p {
+    color: black;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
