@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Report Crime</title>
         <script src="../static/scripts/report.js"></script>
-        <link rel="stylesheet" type="text/css" href="../static/styles/footer.css">
         <link rel="stylesheet" type="text/css" href="../static/styles/header.css">
-        <link rel="stylesheet" type="text/css" href="../static/styles/body.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles/footer.css">
+        <link rel="stylesheet" type="text/css" href="../web_dynamic/static/styles/body.css">
         <link rel="stylesheet" type="text/css" href="../static/styles/reports.css">
     </head>
     <body>
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label for="location" class="label">Location it happened (Specify area)</label>
                     <br>
-                    <textarea id="location" class="form-input" cols="50" rols="1" required></textarea>
+                    <textarea id="location" class="form-input" cols="60" rols="1" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="crime" class="label">Crime Type</label>
@@ -53,7 +53,11 @@
                 <div class="form-group">
                     <label for="description" class="label">Description (Give details of crime)</label>
                     <br>
-                    <textarea id="description" class="form-input" cols="50" rows="7" required></textarea>
+                    <textarea id="description" class="form-input" rows="6" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="anonymous" class="label">Report anonymously? (optional)</label>
+                    <input type="checkbox" id="anonymous" class="form-input checkbox">
                 </div>
                 <button type="submit" class="form-button form-button--submit">Submit Report</button>
             </form>

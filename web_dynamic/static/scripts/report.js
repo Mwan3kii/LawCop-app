@@ -5,6 +5,7 @@ document.getElementById('reporForm').addEventListener('submit', async (event) =>
     const crimeType = document.getElementById('crime').value;
     const datetime = document.getElementById('datetime').value;
     const description = document.getElementById('description').value;
+    const anonymous = document.getElementById('anonymous').checked;
 
     const reportData = {
         county,

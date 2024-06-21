@@ -1,44 +1,49 @@
 .form {
-    max-width: 600px;
+    max-width: 100%;
     margin: auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
 }
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 9px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-left: 20px;
 }
 .label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     font-weight: bold;
-    padding-top: 1.5em;
+    padding-top: 0.5em;
     float: left;
-    font-size: 25px;
+    font-size: 16px;
 }
 .form-input {
     display: inline-block;
-    width: 300px;
-    max-width: 600px;
-    padding: 16px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    width: 200px;
+    max-width: 900px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
     box-sizing: border-box;
     vertical-align: top;
-    font-size: 16px;
+    font-size: 15px;
 }
 .container {
-    background-color: red;
-    max-width: 600px;
-    margin: auto;
+    background: white;
+    max-width: 100%;
+    margin: 0%;
     padding: 15px;
-    box-sizing: border-box;
 }
 h1 {
-    font-size: 2em;
+    font-size: 3em;
     margin-bottom: 0.5em;
+    text-align: center;
+}
+p {
+    font-weight: bold;
+    font-size: 30;
+    text-align: center;
 }
 .form-button {
     padding: 10px 15px;
@@ -49,7 +54,17 @@ h1 {
     font-size: 25px;
     margin: 10px auto;
 }
+.form-input checkbox {
+    width: 100px;
+    max-width: auto;
+    position: absolute;
+    vertical-align: bottom;
+}
 .form-button--submit {
     font-size: 25px;
 
+}
+.form-group textarea {
+    columns: 300;
+    row-gap: 6;
 }
