@@ -1,18 +1,65 @@
 <!DOCTYPE html>
-<html lang="en"
+<html lang="en">
     <head>
-        <meta charset="UTF-8"
-        <link rel="stylesheet" type="text/css" href="..static/styles/footer.css">
-        <link rel="stylesheet" type="text/css" href="..static/styles/header.css">
-        <link rel="stylesheet" type="text/css" href="..static/styles/body.css">
-        <title>LawCop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Report Crime</title>
+        <script src="../static/scripts/report.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/styles/footer.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles/header.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles/body.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles/reports.css">
     </head>
     <body>
         <header>
         </header>
+        <div class="container">
+            <h1>Report a crime form</h1>
+            <p>Please fill out the form below to report a crime</p>
+            <form id="reportForm" class="form">
+                <div class="form-group">
+                    <label for="county" class="label">County Name</label>
+                    <br>
+                    <select id="county" class="form-input" style="width: 390px;" required>
+                        <option value=""></option>
+                        <option value="Nairobi">Nairobi</option>
+                        <option value="Kiambu">Kiambu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location" class="label">Location it happened (Specify area)</label>
+                    <br>
+                    <textarea id="location" class="form-input" cols="50" rols="1" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="crime" class="label">Crime Type</label>
+                    <br>
+                    <select id="crime" class="form-input" style="width: 390px;" required>
+                        <option value=""></option>
+                        <option value="theft">Theft</option>
+                        <option value="assault">Assault</option>
+                        <option value="fraud">Fraud</option>
+                        <option value="vandalism">Vandalism</option>
+                        <option value="drug abuse">Drug abuse</option>
+                        <option value="carjacking">Carjacking</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="datetime" class="label">Time and Date it happened</label>
+                    <br>
+                    <input type="datetime-local" id="datetime" class="form-input" style="width: 385px;" required>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="label">Description (Give details of crime)</label>
+                    <br>
+                    <textarea id="description" class="form-input" cols="50" rows="7" required></textarea>
+                </div>
+                <button type="submit" class="form-button form-button--submit">Submit Report</button>
+            </form>
+        </div>
         <footer>
             <p>LawCop</p>
         </footer>
     </body>
 </html>
-    
