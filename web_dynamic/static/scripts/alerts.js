@@ -35,23 +35,3 @@ function showDetails(alertId) {
 function closePanel() {
     document.getElementById('side-panel').style.display = 'none';
 }
-function loadPage(page) {
-    let url = '';
-
-    switch(page) {
-        case 'create-alert':
-            url = '/create_alert';
-            break;
-        case 'my-reports':
-            url = '/my_reports';
-            break;
-    }
-
-    fetch(url)
-        .then(response => response.text())
-        .then(html => {
-            // Replace the main content with loaded HTML
-            document.querySelector('.main-content').innerHTML = html;
-        })
-        .catch(error => console.error('Error loading page:', error));
-}

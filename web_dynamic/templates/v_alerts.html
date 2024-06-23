@@ -10,16 +10,19 @@
 <body>
     <div class="dashboard-container">
         <aside class="side-panel">
-            <ul>
-                <li><a href="#" onclick="loadPage('create-alert')">Create Alert</a></li>
-                <li><a href="#" onclick="loadPage('my-reports')">My Reports</a></li>
-            </ul>
+            <div class="panel-content">
+                <ul>
+                    <li><a href="#" onclick="loadPage('create-alert')">Create Alert</a></li>
+                    <li><a href="#" onclick="loadPage('my-reports')">My Reports</a></li>
+                </ul>
+            </div>
         </aside>
     </div>
+    <div class="divider"></div>
     <main>
         <div class="container">
             <h1>Crime Alerts</h1>
-            <div class="lists-alerts">
+            <div class="lists-alerts" id="alertsList">
                 <!-- Alerts -->
             </div>
         </div>

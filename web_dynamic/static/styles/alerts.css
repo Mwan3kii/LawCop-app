@@ -128,23 +128,36 @@ h2 {
     background-color: #2c3e50;
     color: white;
     padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.panel-content {
+    padding-left: 20px;
 }
 
-.side-panel ul {
+.panel-content ul {
     list-style-type: none;
     padding: 0;
 }
 
-.side-panel ul li {
-    padding: 10px 20px;
+.panel-content ul li {
+    padding: 10px 0;
 }
 
-.side-panel ul li a {
+.panel-content ul li a {
     color: white;
     text-decoration: none;
     display: block;
+    padding: 10px 20px;
 }
 
-.side-panel ul li a:hover {
+.panel-content ul li a:hover {
     background-color: #34495e;
+}
+
+.divider {
+    border-left: 1px solid #ccc;
+    height: 100%;
 }
