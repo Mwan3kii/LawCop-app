@@ -44,7 +44,7 @@ h1 {
     color: #fff;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0px;
     margin-top: 1em;
 }
 
@@ -116,4 +116,35 @@ h1 {
 
 h2 {
     margin-top: 0;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+.side-panel {
+    width: 200px;
+    background-color: #2c3e50;
+    color: white;
+    padding-top: 20px;
+}
+
+.side-panel ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-panel ul li {
+    padding: 10px 20px;
+}
+
+.side-panel ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.side-panel ul li a:hover {
+    background-color: #34495e;
 }

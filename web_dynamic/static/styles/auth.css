@@ -40,7 +40,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 1em;
-    font-size: 3em;
+    font-size: 2em;
 }
 p {
     font-weight: bold;
@@ -53,7 +53,7 @@ p {
     border-radius: 30px;
     cursor: pointer;
     display: block;
-    font-size: 25px;
+    font-size: 19px;
     margin: 10px auto;
 }
 .auth-input {

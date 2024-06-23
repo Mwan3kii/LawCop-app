@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Reports</title>
+    <link rel="stylesheet" href="../web_st/static/styles/alerts.css">
+    <link rel="stylesheet" href="../web_st/static/styles/my_reports.css">
+    <script src="../static/scripts/user_report.js"></script>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>My Reports</h1>
+            <div class="reports-list" id="reportsList">
+                <!-- Reports will be populated here by JavaScript -->
+            </div>
+        </div>
+        <div id="side-panel" class="side-panel">
+            <div class="panel-content">
+                <span class="close-button" onclick="closePanel()">&times;</span>
+                <h2>Report Details</h2>
+                <div id="details-content">
+                    <!-- Details will be populated here -->
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

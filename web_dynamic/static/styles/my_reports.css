@@ -1,0 +1,41 @@
+.reports-list {
+    width: 100%;
+}
+
+.report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e7e7e7;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.report-item:hover {
+    background-color: #d7d7d7;
+}
+
+.report-type, .report-date {
+    margin: 0;
+}
+
+.manage-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.view-details-button, .edit-button, .delete-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.view-details-button:hover, .edit-button:hover, .delete-button:hover {
+    background-color: #0056b3;
+}
