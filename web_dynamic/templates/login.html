@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LawCop</title>
+        <script src="../static/scripts/auth.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/styles/auth.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles/body.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo"></div>
+            <div id="api_status" class="available"></div>
+        </header>
+        <main>
+            <div class="container">
+                <h1>Login to get and manage alerts</h1>
+                <form id="loginForm" class="form">
+                    <div class="form-login">
+                        <label for="username" class="label">Username</label>
+                        <input type="text" id="username" class="auth-input" required>
+                    </div>
+                    <div class="form-login">
+                        <label for="passwd" class="label">Password</label>
+                        <input type="password" id="passwd" class="auth-input" required>
+                    </div>
+                    <button type="submit" class="auth-button">Login</button>
+                </form>
+            <p class="redirect-text">
+                Don't have an account? <a href="signup.html">Sign up</a>
+            </p>
+            </div>
+        </main>
+    </body>
+</html>

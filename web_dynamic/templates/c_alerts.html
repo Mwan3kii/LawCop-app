@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alerts</title>
+        <script src="../static/scripts/alerts.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/styles/header.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles/footer.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles/alerts.css">
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            <div class="container">
+                <h1>Create Alert</h1>
+                <form id="alertForm" action="/create_alert" method="post">
+                    <div class="alerts-form">
+                        <label for="alerts">Alert type</label>
+                        <input type="text" id="alerts" class="alert-input" required>
+                    </div>
+                    <div class="alerts-form">
+                        <label for="alertDate">Date issued</label>
+                    <input type="datetime-local" id="alertDate" name="alertDate" class="alert-input" required>
+                </div>
+                <div class="alerts-form">
+                    <label for="alertDescription">Description</label>
+                    <textarea id="alertDescription" name="alertDescription" class="alert-input" required></textarea>
+                </div>
+                <button type="submit" class="alert-button">Create Alert</button>
+            </form>
+        </main>
+    </body>
+</html>
