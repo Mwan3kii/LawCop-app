@@ -5,10 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Login logic (e.g., AJAX request to backend)
             const username = document.getElementById('username').value;
-            const password = document.getElementById('passwd').value;
-            // Perform AJAX request or form submission
+            const password = document.getElementById('password').value;
             console.log('Login:', { username, password });
         });
     }
@@ -16,11 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (signupForm) {
         signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Signup logic (e.g., AJAX request to backend)
             const username = document.getElementById('username').value;
-            const password = document.getElementById('passwd').value;
+            const password = document.getElementById('password').value;
             const email = document.getElementById('email').value;
-            // Perform AJAX request or form submission
             console.log('Signup:', { username, password, email });
         });
     }

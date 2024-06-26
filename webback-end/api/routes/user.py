@@ -60,12 +60,12 @@ def post_user():
     if not request.get_json():
         abort(400, description="Not a JSON")
 
-    if 'email' not in request.get_json():
-        abort(400, description="Missing email")
-    if 'password' not in request.get_json():
-        abort(400, description="Missing password")
-
     data = request.get_json()
+    required_fields = ['username', 'email', 'password']
+    for field in required_fields:
+        if field not in data:
+            abort(400, description=f"Missing required field: {field}")
+
     instance = User(**data)
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)

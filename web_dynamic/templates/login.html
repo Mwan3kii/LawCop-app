@@ -16,14 +16,14 @@
         <main>
             <div class="container">
                 <h1>Login to get and manage alerts</h1>
-                <form id="loginForm" class="form">
+                <form id="loginForm" class="form" action="/login" method="POST">
                     <div class="form-login">
                         <label for="username" class="label">Username</label>
                         <input type="text" id="username" class="auth-input" required>
                     </div>
                     <div class="form-login">
-                        <label for="passwd" class="label">Password</label>
-                        <input type="password" id="passwd" class="auth-input" required>
+                        <label for="password" class="label">Password</label>
+                        <input type="password" id="password" class="auth-input" required>
                     </div>
                     <button type="submit" class="auth-button">Login</button>
                 </form>

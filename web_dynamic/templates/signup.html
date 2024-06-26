@@ -16,7 +16,7 @@
         <main>
             <div class="container">
                 <h1>Sign up to get and manage alerts</h1>
-                <form id="loginForm" class="form">
+                <form id="signupForm" class="form" action="/signup" method="post">
                     <div class="form-auth">
                         <label for="username" class="label">Username</label>
                         <input type="text" id="username" class="auth-input" required>
@@ -26,8 +26,8 @@
                         <input type="email" id="email" class="auth-input" required>
                     </div>
                     <div class="form-auth">
-                        <label for="passwd" class="label">Password</label>
-                        <input type="password" id="passwd" class="auth-input" required>
+                        <label for="password" class="label">Password</label>
+                        <input type="password" id="password" class="auth-input" required>
                     </div>
                     <button type="submit" class="auth-button">Create account</button>
                 </form>

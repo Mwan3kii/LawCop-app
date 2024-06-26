@@ -4,7 +4,7 @@
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
-import sqlalchemy
+from flask_sqlalchemy import sqlalchemy
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 from hashlib import md5
@@ -23,6 +23,8 @@ class User(BaseModel, Base):
         username = ""
         email = ""
         password = ""
+        reports = ""
+        alerts = ""
 
     def __init__(self, *args, **kwargs):
         """initializes user"""

@@ -1,69 +1,71 @@
 #!/usr/bin/python3
 """handle all default RestFul API actions for authentication"""
-from models.user import User
-from models import storage
-from api.routes import app_routes
-from flask import abort, jsonify, make_response, request
-from flask import render_template, url_for, redirect, flash
-from flasgger.utils import swag_from
-from flask_bcrypt import Bcrypt
-from flask import Flask
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-
-
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
+ 
+ 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+ 
 
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
-
-bcrypt = Bcrypt(app)
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-
-
-@app_routes.route('/login', methods=['GET', 'POST'])
+app.secret_key = 'aniki' 
+app.config['LC_MYSQL_HOST'] = 'localhost'
+app.config['LC_MYSQL_USER'] = 'lc_dev'
+app.config['LC_MYSQL_PWD'] = 'lc_P0swd'
+app.config['LC_MYSQL_DB'] = 'lc_dev_db'
+ 
+mysql = MySQL(app)
+ 
+@app.route('/')
+@app.route('/login', methods =['GET', 'POST'])
 def login():
-    if request.method == 'POST':
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
-        user = User.query.filter_by(username=username).first()
-        if user and bcrypt.check_password_hash(user.password, password):
-            login_user(user)
-            flash('Login successful!', 'success')
-            return redirect(url_for('alerts'))
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM accounts WHERE username = % s AND password = % s', (username, password, ))
+        account = cursor.fetchone()
+        if account:
+            session['loggedin'] = True
+            session['id'] = account['id']
+            session['username'] = account['username']
+            msg = 'Logged in successfully !'
+            return render_template('alerts.html', msg = msg)
         else:
-            flash('Invalid username or password', 'danger')
-    return render_template('login.html')
-
-@app_routes.route('/signup', methods=['GET', 'POST'])
+            msg = 'Incorrect username / password !'
+    return render_template('login.html', msg = msg)
+ 
+@app.route('/logout')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    return redirect(url_for('login'))
+ 
+@app.route('/signup', methods =['GET', 'POST'])
 def signup():
-    if request.method == 'POST':
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form :
         username = request.form['username']
         password = request.form['password']
         email = request.form['email']
-        existing_user = User.query.filter_by(username=username).first()
-        if existing_user:
-            flash('Username already exists', 'danger')
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM accounts WHERE username = % s', (username, ))
+        account = cursor.fetchone()
+        if account:
+            msg = 'Account already exists !'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+            msg = 'Invalid email address !'
+        elif not re.match(r'[A-Za-z0-9]+', username):
+            msg = 'Username must contain only characters and numbers !'
+        elif not username or not password or not email:
+            msg = 'Please fill out the form !'
         else:
-            hashed_password = bcrypt.generate_password_hash(password, method='sha256')
-            new_user = User(username=username, password=hashed_password, email=email)
-            storage.add(new_user)
-            storage.save
-            flash('Account created successfully!', 'success')
-            return redirect(url_for('login'))
-    return render_template('signup.html')
-
-
-@app_routes.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    flash('You have been logged out.', 'info')
-    return redirect(url_for('/login'))
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+            cursor.execute('INSERT INTO accounts VALUES (NULL, % s, % s, % s)', (username, password, email, ))
+            mysql.connection.commit()
+            msg = 'You have successfully registered !'
+    elif request.method == 'POST':
+        msg = 'Please fill out the form !'
+    return render_template('signup.html', msg = msg)

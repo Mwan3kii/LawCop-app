@@ -14,15 +14,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-LC_MYSQL_USER='lc_dev'
-LC_MYSQL_PWD='lc_POswd'
-LC_MYSQL_HOST='localhost'
-LC_MYSQL_DB='lc_dev_db'
-LC_TYPE_STORAGE='db'
-LC_ENV='test'
-
-classes = {"Alert": Alert, "Report": Report,
-           "User": User}
+classes = {"Alert": Alert, "Report": Report, "User": User}
 
 
 class DBStorage:
@@ -43,7 +35,7 @@ class DBStorage:
                                              LC_MYSQL_HOST,
                                              LC_MYSQL_DB))
         if LC_ENV == "test":
-            Base.metadata.drop_all(self.__engine)
+            Base.metadata.create_all(self.__engine)
 
     def all(self, cls=None):
         """query on the current database session"""

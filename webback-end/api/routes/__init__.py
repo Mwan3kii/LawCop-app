@@ -9,3 +9,5 @@ from api.routes.index import *
 from api.routes.reports import *
 from api.routes.alerts import *
 from api.routes.user import *
+from api.routes.auth import *
+from api.routes.my_reports import *
