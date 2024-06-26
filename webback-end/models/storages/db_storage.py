@@ -9,9 +9,17 @@ from models.base_model import BaseModel, Base
 from models.alerts import Alert
 from models.user import User
 from os import getenv
+import os
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+
+LC_MYSQL_USER='lc_dev'
+LC_MYSQL_PWD='lc_POswd'
+LC_MYSQL_HOST='localhost'
+LC_MYSQL_DB='lc_dev_db'
+LC_TYPE_STORAGE='db'
+LC_ENV='test'
 
 classes = {"Alert": Alert, "Report": Report,
            "User": User}
@@ -24,17 +32,17 @@ class DBStorage:
 
     def __init__(self):
         """Instantiate a DBStorage object"""
-        HBNB_MYSQL_USER = getenv('HBNB_MYSQL_USER')
-        HBNB_MYSQL_PWD = getenv('HBNB_MYSQL_PWD')
-        HBNB_MYSQL_HOST = getenv('HBNB_MYSQL_HOST')
-        HBNB_MYSQL_DB = getenv('HBNB_MYSQL_DB')
-        HBNB_ENV = getenv('HBNB_ENV')
+        LC_MYSQL_USER = getenv('LC_MYSQL_USER')
+        LC_MYSQL_PWD = getenv('LC_MYSQL_PWD')
+        LC_MYSQL_HOST = getenv('LC_MYSQL_HOST')
+        LC_MYSQL_DB = getenv('LC_MYSQL_DB')
+        LC_ENV = getenv('LC_ENV')
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                      format(HBNB_MYSQL_USER,
-                                             HBNB_MYSQL_PWD,
-                                             HBNB_MYSQL_HOST,
-                                             HBNB_MYSQL_DB))
-        if HBNB_ENV == "test":
+                                      format(LC_MYSQL_USER,
+                                             LC_MYSQL_PWD,
+                                             LC_MYSQL_HOST,
+                                             LC_MYSQL_DB))
+        if LC_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):

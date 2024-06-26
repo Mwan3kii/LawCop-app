@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/get_my_reports')
+    fetch('/my_reports')
         .then(response => response.json())
         .then(data => {
             const reportsList = document.getElementById('reportsList');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
-function viewDetails(id) {
+function viewDetails(reportId) {
     fetch(`/get_report_details?id=${id}`)
         .then(response => response.json())
         .then(data => {
