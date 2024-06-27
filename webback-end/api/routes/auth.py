@@ -7,14 +7,7 @@ import re
  
  
 app = Flask(__name__)
- 
 
-app.secret_key = 'aniki' 
-app.config['LC_MYSQL_HOST'] = 'localhost'
-app.config['LC_MYSQL_USER'] = 'lc_dev'
-app.config['LC_MYSQL_PWD'] = 'lc_P0swd'
-app.config['LC_MYSQL_DB'] = 'lc_dev_db'
- 
 mysql = MySQL(app)
  
 @app.route('/')
