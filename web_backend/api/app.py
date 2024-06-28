@@ -21,6 +21,16 @@ def close_db(error):
     storage.close()
 
 
+@app.errorhandler(400)
+def bad_request(error):
+    """ 400 Error
+    ---
+    responses:
+      400:
+        description: a resource was not found
+    """
+    return make_response(jsonify({'error': str(error.description)}), 400)
+
 @app.errorhandler(404)
 def not_found(error):
     """ 404 Error
@@ -30,6 +40,16 @@ def not_found(error):
         description: a resource was not found
     """
     return make_response(jsonify({'error': "Not found"}), 404)
+
+@app.errorhandler(500)
+def server_error(error):
+    """ 404 Error
+    ---
+    responses:
+      404:
+        description: a resource was not found
+    """
+    return jsonify({'error': 'Internal server error'}), 500
 
 app.config['SWAGGER'] = {
     'title': 'LawCop web application',
@@ -46,5 +66,5 @@ if __name__ == "__main__":
     if not host:
         host = '0.0.0.0'
     if not port:
-        port = '5000'
-    app.run(host=host, port=port, threaded=True)
+        port = '5500'
+    app.run(host=host, port=port, threaded=True, debug=True)

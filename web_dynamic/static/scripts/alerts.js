@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/get_alerts')
         .then(response => response.json())
         .then(data => {
-            const alertsList = document.querySelector('.alerts-list');
-            data.alerts.forEach(alert => {
+            const alertsList = document.querySelector('alertsList');
+            data.forEach(alert => {
                 const alertItem = document.createElement('div');
                 alertItem.classList.add('alert-item');
                 alertItem.setAttribute('onclick', `showDetails(${alert.id})`);
@@ -34,4 +34,11 @@ function showDetails(alertId) {
 
 function closePanel() {
     document.getElementById('side-panel').style.display = 'none';
+}
+function loadPage(page) {
+    if (page === 'create-alert') {
+        window.location.href = '/c_alerts.html';
+    } else if (page === 'my-reports') {
+        window.location.href = '/my_reports.html';
+    }
 }

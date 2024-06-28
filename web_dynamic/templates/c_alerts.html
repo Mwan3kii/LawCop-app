@@ -18,8 +18,14 @@
                 <h1>Create Alert</h1>
                 <form id="alertForm" action="/create_alert" method="post">
                     <div class="alerts-form">
-                        <label for="alerts">Alert type</label>
-                        <input type="text" id="alerts" class="alert-input" required>
+                        <label for="alert_type">Alert type:</label>
+                        <select id="alert_type" name="alert_type" class="alert-input" required>
+                            {% for alert_type in alert_types %}
+                                <option value="{{ alert_type }}"></option>
+                                <option value="{{ alert_type }}">Thief Alert</option>
+                                <option value="{{ alert_type }}">Assault Alert</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="alerts-form">
                         <label for="alertDate">Date issued</label>

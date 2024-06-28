@@ -1,10 +1,10 @@
 #!/usr/bin/python
-""" holds class City"""
+""" holds class report"""
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
 import sqlalchemy
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey, Date
 from sqlalchemy.orm import relationship
 
 

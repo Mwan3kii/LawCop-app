@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LawCop</title>
-        <script src="../static/scripts/auth.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../static/scripts/auth.js?{{ cache_id }}"></script>
         <link rel="stylesheet" type="text/css" href="../static/styles/auth.css">
         <link rel="stylesheet" type="text/css" href="../static/styles/body.css">
     </head>
@@ -16,7 +17,7 @@
         <main>
             <div class="container">
                 <h1>Sign up to get and manage alerts</h1>
-                <form id="signupForm" class="form" action="/signup" method="post">
+                <form id="signupForm" class="form" action="{{ url_for('auth.signup') }}" method="post">
                     <div class="form-auth">
                         <label for="username" class="label">Username</label>
                         <input type="text" id="username" class="auth-input" required>
@@ -29,10 +30,14 @@
                         <label for="password" class="label">Password</label>
                         <input type="password" id="password" class="auth-input" required>
                     </div>
-                    <button type="submit" class="auth-button">Create account</button>
+                    <div class="remember">
+                        <input class="checkbox" type="checkbox" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <button type="submit" class="auth-button" name="signup">Create account</button>
                 </form>
             <p class="redirect-text">
-                Already have an account? <a href="login.html">Login</a>
+                Already have an account? <a href="{{ url_for('auth.login_page') }}">Login</a>
             </p>
             <div class="anonymous-report">
                 <p>Do you want to report anonymously?</p>

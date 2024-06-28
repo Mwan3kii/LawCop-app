@@ -8,6 +8,7 @@ import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey, Text
 from sqlalchemy.orm import relationship
 from hashlib import md5
+from datetime import datetime
 
 
 class Alert(BaseModel, Base):

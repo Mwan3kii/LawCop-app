@@ -7,7 +7,7 @@
         <script src="../static/scripts/report.js"></script>
         <link rel="stylesheet" type="text/css" href="../static/styles/header.css">
         <link rel="stylesheet" type="text/css" href="../static/styles/footer.css">
-        <link rel="stylesheet" type="text/css" href="../web_dynamic/static/styles/body.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles/body.css">
         <link rel="stylesheet" type="text/css" href="../static/styles/reports.css">
     </head>
     <body>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="county" class="label">County Name</label>
                     <br>
-                    <select id="county" class="form-input" style="width: 390px;" required>
+                    <select id="county" class="form-input" required>
                         <option value=""></option>
                         <option value="Nairobi">Nairobi</option>
                         <option value="Kiambu">Kiambu</option>
@@ -29,12 +29,12 @@
                 <div class="form-group">
                     <label for="location" class="label">Location it happened (Specify area)</label>
                     <br>
-                    <textarea id="location" class="form-input" cols="60" rols="1" required></textarea>
+                    <textarea id="location" class="form-textarea" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="crime" class="label">Crime Type</label>
                     <br>
-                    <select id="crime" class="form-input" style="width: 390px;" required>
+                    <select id="crime" class="form-input" required>
                         <option value=""></option>
                         <option value="theft">Theft</option>
                         <option value="assault">Assault</option>
@@ -50,12 +50,12 @@
                 <div class="form-group">
                     <label for="datetime" class="label">Date of incident</label>
                     <br>
-                    <input type="datetime-local" id="datetime" class="form-input" style="width: 385px;" required>
+                    <input type="datetime-local" id="datetime" class="form-input" required>
                 </div>
                 <div class="form-group">
                     <label for="description" class="label">Description (Give details of crime)</label>
                     <br>
-                    <textarea id="description" class="form-input" rows="6" required></textarea>
+                    <textarea id="description" class="form-textarea" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="anonymous" class="label">Report as anonymous? (optional)</label>
